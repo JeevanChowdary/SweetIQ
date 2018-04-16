@@ -94,16 +94,64 @@ describe.skip('Future purpose invalid operatiors and valid values ', function() 
 });
 
 
-describe('Arthimetic Tests', function() {
+describe('Passing valid operator but invalid numbers', function() {
 	// And then we describe our testcases.
-    
-    it('Not equal', function(done) {
-		assert.notEqual(arithmetic.arthimetic_calculations('/',220, 11, 9), 210);
+	it('numbers are not passed', function(done) {
+		assert.notEqual(arithmetic.arthimetic_calculations('/','220S', '1as1', "Must pass numbers as params"), 210);
 		done();
 		});
-		it('incorrect params', function(done) {
-			assert.notEqual(arithmetic.arthimetic_calculations('/','220S', '1as1', "Must pass numbers as params"), 210);
+
+		it('number is not passed', function(done) {
+			assert.equal(arithmetic.arthimetic_calculations('+','220a', 7), "Must pass numbers as params");
+			// Invoke done when the test is complete.
+			done();
+		});
+	
+		it('number is not passed', function(done) {
+			assert.equal(arithmetic.arthimetic_calculations('-',37, '10s'), "Must pass numbers as params");
 			done();
 			});
 });
+
+describe('passing excess or Null arguments but getting proper results', function(){
+// And then we describe our testcases.
+it('three arguments are passed but code accepting 2 values only', function(done) {
+	//assert.notEqual
+	assert.equal(arithmetic.arthimetic_calculations('/',220, 11, 9), 20);
+	done();
+	});
+
+	it('returns can not divide by 0', function(done) {
+		assert.equal(arithmetic.arthimetic_calculations('/',100, 0,1), 'Can not divide by 0');
+		done();
+    });
+
+		it.skip('not accepting less number of arguments', function(done) {
+			assert.equal(arithmetic.arthimetic_calculations('/', null, 2,), 'Must pass two numbers as parameters');
+			done();
+			});
+});
+
+
+describe('not equal conditions', function() {
+	// And then we describe our testcases.
+    
+	it('division is not equal to unwanted value', function(done) {
+		//assert.notEqual
+		assert.notEqual(arithmetic.arthimetic_calculations('/',220, 0), 210);
+		done();
+		});
+
+
+})
+/*describe.only('Arthimetic Tests', function() {
+	// And then we describe our testcases.
+    
+    it('Not equal', function(done) {
+		//assert.notEqual
+		assert.notEqual(arithmetic.arthimetic_calculations('/',220, 11, 9), 210);
+		done();
+		});
+		
+});*/
 
