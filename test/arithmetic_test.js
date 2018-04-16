@@ -78,17 +78,17 @@ describe('invalid operatiors and valid values', function(){
 describe.skip('Future purpose invalid operatiors and valid values ', function() {
 	// And then we describe our testcases.
 	it('\'ab\' is not accepted by the script', function(done) {
-		assert.equal(arithmetic.arthimetic_calculations('+-',9, 1), 'Wrong Operation Type');
+		assert.equal(arithmetic.arthimetic_calculations('ab',9, 1), 'Wrong Operation Type');
 		done();
 		});
 
-		it('\'ab\' is not accepted by the script', function(done) {
+		it('\'+-\' is not accepted by the script', function(done) {
 			assert.equal(arithmetic.arthimetic_calculations('+-',9, 1), 'Wrong Operation Type');
 			done();
 			});
 		
-			it('\'*/\' is not accepted by the script', function(done) {
-				assert.equal(arithmetic.arthimetic_calculations('+-',9, 1), 'Wrong Operation Type');
+			it('\'/*\' is not accepted by the script', function(done) {
+				assert.equal(arithmetic.arthimetic_calculations('/*',9, 1), 'Wrong Operation Type');
 				done();
 				});
 });
@@ -155,3 +155,58 @@ describe('not equal conditions', function() {
 		
 });*/
 
+
+
+/*
+						 output:
+						 
+
+C:\Users\JeevanPrakash\Desktop\example\SweetIQ>npm test
+
+> example@1.0.0 test C:\Users\JeevanPrakash\Desktop\example\SweetIQ
+> mocha
+
+
+
+  Valid Operator and valid values
+    √ Addition operation returns 8+7=15
+    √ Subtraction operation returns 37-16=21
+    √ Multiplication operation returns 5*12=60
+    √ Division operation returns 1470 / 7=210
+    - This operation is for future purpose
+    - this operation is also for future purpose
+
+  Division operation failure case
+    √ returns can not divide by 0
+    - future purpose division problems skipping presently
+
+  invalid operatiors and valid values
+    √ '%' is not accepted by the script
+    √ '++' is not accepted by the script
+    √ '+-' is not accepted by the script
+    √ '+*' is not accepted by the script
+    √ '+/' is not accepted by the script
+    - '--' is not accepted by the script
+
+  Future purpose invalid operatiors and valid values
+    - 'ab' is not accepted by the script
+    - '+-' is not accepted by the script
+    - '/*' is not accepted by the script
+
+  Passing valid operator but invalid numbers
+    √ numbers are not passed
+    √ number is not passed
+    √ number is not passed
+
+  passing excess or Null arguments but getting proper results
+    √ three arguments are passed but code accepting 2 values only
+    √ returns can not divide by 0
+    - not accepting less number of arguments
+
+  not equal conditions
+    √ division is not equal to unwanted value
+
+
+  16 passing (42ms)
+  8 pending
+  */
